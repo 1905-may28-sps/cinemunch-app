@@ -11,27 +11,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cinemunch.beans.MembershipType;
-import com.cinemunch.service.MembershipTypeService;
+import com.cinemunch.beans.Movie;
+import com.cinemunch.service.MovieService;
 
 @RestController
-@RequestMapping("/membershiptype")
-public class MembershipTypeController {
+@RequestMapping("/movie")
+public class MovieController {
 	
 	@Autowired
-	MembershipTypeService service;
+	MovieService service;
 	
 	@RequestMapping
-	public ResponseEntity<List<MembershipType>> findAll(){
-		List<MembershipType> membershipTypes = service.getAll();
-		if(membershipTypes == null || membershipTypes.size() == 0) return new ResponseEntity<List<MembershipType>>(HttpStatus.NO_CONTENT);
-		return new ResponseEntity<List<MembershipType>>(membershipTypes, HttpStatus.OK);
+	public ResponseEntity<List<Movie>> findAll(){
+		List<Movie> movies = service.getAll();
+		if(movies == null || movies.size() == 0) return new ResponseEntity<List<Movie>>(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<List<Movie>>(movies, HttpStatus.OK);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<MembershipType> add(@RequestBody MembershipType m){
+	public ResponseEntity<Movie> add(@RequestBody Movie m){
 		m = service.add(m);
-		return new ResponseEntity<MembershipType>(m, HttpStatus.CREATED);
+		return new ResponseEntity<Movie>(m, HttpStatus.CREATED);
 	}
 
 }

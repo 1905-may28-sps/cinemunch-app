@@ -11,27 +11,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cinemunch.beans.MembershipType;
-import com.cinemunch.service.MembershipTypeService;
+import com.cinemunch.beans.ShowTime;
+import com.cinemunch.service.ShowTimeService;
 
 @RestController
-@RequestMapping("/membershiptype")
-public class MembershipTypeController {
+@RequestMapping("/showtime")
+public class ShowTimeController {
 	
 	@Autowired
-	MembershipTypeService service;
+	ShowTimeService service;
 	
 	@RequestMapping
-	public ResponseEntity<List<MembershipType>> findAll(){
-		List<MembershipType> membershipTypes = service.getAll();
-		if(membershipTypes == null || membershipTypes.size() == 0) return new ResponseEntity<List<MembershipType>>(HttpStatus.NO_CONTENT);
-		return new ResponseEntity<List<MembershipType>>(membershipTypes, HttpStatus.OK);
+	public ResponseEntity<List<ShowTime>> findAll(){
+		List<ShowTime> showTimes = service.getAll();
+		if(showTimes == null || showTimes.size() == 0) return new ResponseEntity<List<ShowTime>>(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<List<ShowTime>>(showTimes, HttpStatus.OK);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<MembershipType> add(@RequestBody MembershipType m){
-		m = service.add(m);
-		return new ResponseEntity<MembershipType>(m, HttpStatus.CREATED);
+	public ResponseEntity<ShowTime> add(@RequestBody ShowTime s){
+		s = service.add(s);
+		return new ResponseEntity<ShowTime>(s, HttpStatus.CREATED);
 	}
 
 }

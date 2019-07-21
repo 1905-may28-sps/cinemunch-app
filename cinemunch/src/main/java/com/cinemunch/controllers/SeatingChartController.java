@@ -11,27 +11,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cinemunch.beans.MembershipType;
-import com.cinemunch.service.MembershipTypeService;
+import com.cinemunch.beans.SeatingChart;
+import com.cinemunch.service.SeatingChartService;
 
 @RestController
-@RequestMapping("/membershiptype")
-public class MembershipTypeController {
+@RequestMapping("/seatingchart")
+public class SeatingChartController {
 	
 	@Autowired
-	MembershipTypeService service;
+	SeatingChartService service;
 	
 	@RequestMapping
-	public ResponseEntity<List<MembershipType>> findAll(){
-		List<MembershipType> membershipTypes = service.getAll();
-		if(membershipTypes == null || membershipTypes.size() == 0) return new ResponseEntity<List<MembershipType>>(HttpStatus.NO_CONTENT);
-		return new ResponseEntity<List<MembershipType>>(membershipTypes, HttpStatus.OK);
+	public ResponseEntity<List<SeatingChart>> findAll(){
+		List<SeatingChart> seatingCharts = service.getAll();
+		if(seatingCharts == null || seatingCharts.size() == 0) return new ResponseEntity<List<SeatingChart>>(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<List<SeatingChart>>(seatingCharts, HttpStatus.OK);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<MembershipType> add(@RequestBody MembershipType m){
-		m = service.add(m);
-		return new ResponseEntity<MembershipType>(m, HttpStatus.CREATED);
+	public ResponseEntity<SeatingChart> add(@RequestBody SeatingChart s){
+		s = service.add(s);
+		return new ResponseEntity<SeatingChart>(s, HttpStatus.CREATED);
 	}
 
 }
