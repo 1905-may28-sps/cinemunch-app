@@ -7,5 +7,7 @@ import com.cinemunch.beans.Movie;
 
 @Repository
 public interface MovieRepository extends JpaRepository<Movie, Integer>{
+	
+	
 
 }
