@@ -55,10 +55,9 @@ public class Member {
 		
 	}
 
-	public Member(int memberId, String firstName, String lastName, String dob, String email, String username,
+	public Member(String firstName, String lastName, String dob, String email, String username,
 			String password, MembershipType membershipType, Movie movie, Menu menu) {
 		super();
-		this.memberId = memberId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.dob = dob;
