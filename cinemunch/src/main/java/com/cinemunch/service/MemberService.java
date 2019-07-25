@@ -15,11 +15,21 @@ public class MemberService {
 	MemberRepository memberRepo;
 	
 	public Member add(Member member) {
-		return memberRepo.save(member);
+		Member m = memberRepo.findByUsernameLikeIgnoreCase(member.getUsername());
+		while(m != null) { 
+		return null;}
+		return memberRepo.save(new Member(member.getFirstName(), member.getLastName(), member.getDob(), member.getEmail(), member.getUsername(), member.getPassword(), member.getMembershipType(), member.getMovie(), member.getMenu()));
 	}
 	
 	public List<Member> getAll(){
 		return memberRepo.findAll();
+	}
+	
+	public Member login(Member member) {
+		Member m = memberRepo.findByUsernameLikeIgnoreCase(member.getUsername());
+		if(m != null && m.getPassword().equals(member.getPassword()))
+			return m;
+		return null;
 	}
 
 }
