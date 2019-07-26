@@ -18,7 +18,7 @@ public class MemberService {
 		Member m = memberRepo.findByUsernameLikeIgnoreCase(member.getUsername());
 		while(m != null) { 
 		return null;}
-		return memberRepo.save(new Member(member.getFirstName(), member.getLastName(), member.getDob(), member.getEmail(), member.getUsername(), member.getPassword(), member.getMembershipType(), member.getMovie(), member.getMenu()));
+		return memberRepo.save(member);
 	}
 	
 	public List<Member> getAll(){
