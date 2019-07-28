@@ -23,7 +23,7 @@ public class SeatingChartService {
 	}
 	
 	public SeatingChart patch(int seatId, SeatingChart seatingChart) {
-		return seatingChartRepo.save(seatingChart);
+		return seatingChartRepo.findOne(seatId);
 	}
 	
 }
