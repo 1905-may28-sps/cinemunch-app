@@ -22,4 +22,8 @@ public class SeatingChartService {
 		return seatingChartRepo.findAll();
 	}
 	
+	public SeatingChart patch(int seatId, SeatingChart seatingChart) {
+		return seatingChartRepo.save(seatingChart);
+	}
+	
 }

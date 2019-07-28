@@ -35,5 +35,11 @@ public class SeatingChartController {
 		s = service.add(s);
 		return new ResponseEntity<SeatingChart>(s, HttpStatus.CREATED);
 	}
+	
+	@RequestMapping(value="/seatId/{seatId}", method=RequestMethod.PATCH, consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<SeatingChart> patch( @RequestBody SeatingChart p){
+		p = service.patch(2, p);
+		return new ResponseEntity<SeatingChart>(p, HttpStatus.ACCEPTED);
+	}
 
 }
