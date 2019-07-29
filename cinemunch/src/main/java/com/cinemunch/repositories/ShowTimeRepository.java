@@ -13,9 +13,9 @@ import com.cinemunch.beans.ShowTime;
 @Transactional
 @Repository
 public interface ShowTimeRepository extends JpaRepository<ShowTime, Integer>{
-	ShowTime s = new ShowTime();
+	
     List<ShowTime> getShowTimeByMovie(Movie m);
     
-    List<ShowTime> findSeatIdByShowTime(ShowTime s);
+   
     
 }

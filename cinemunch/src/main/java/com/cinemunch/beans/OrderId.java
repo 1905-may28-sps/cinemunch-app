@@ -9,25 +9,25 @@ import javax.persistence.Embeddable;
 public class OrderId implements Serializable{
 	
 	@Column(name = "SHOWTIMEID")
-	private int showtimeId;
+	private int showTimeId;
 	
 	@Column(name = "SEATID")
 	private int seatId;
 	
 	public OrderId() {}
 
-	public OrderId(int showtimeId, int seatId) {
+	public OrderId(int showTimeId, int seatId) {
 		super();
-		this.showtimeId = showtimeId;
+		this.showTimeId = showTimeId;
 		this.seatId = seatId;
 	}
 
-	public int getShowtimeId() {
-		return showtimeId;
+	public int getShowTimeId() {
+		return showTimeId;
 	}
 
-	public void setShowtimeId(int showtimeId) {
-		this.showtimeId = showtimeId;
+	public void setShowTimeId(int showTimeId) {
+		this.showTimeId = showTimeId;
 	}
 
 	public int getSeatId() {
@@ -38,4 +38,5 @@ public class OrderId implements Serializable{
 		this.seatId = seatId;
 	}
 
+	
 }

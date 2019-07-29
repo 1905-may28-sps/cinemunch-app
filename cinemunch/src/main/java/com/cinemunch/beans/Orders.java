@@ -25,7 +25,7 @@ public class Orders {
 	@ManyToOne
 	@MapsId ("SHOWTIMEID")
 	@JoinColumn(name = "SHOWTIMEID")
-	private ShowTime showtime;
+	private ShowTime showTime;
 	
 	private int seatId;
 	
@@ -38,11 +38,11 @@ public class Orders {
 		
 	}
 
-	public Orders(OrderId orderId, Member member, ShowTime showtime, int seatId, Menu menu) {
+	public Orders(OrderId orderId, Member member, ShowTime showTime, int seatId, Menu menu) {
 		super();
 		this.orderId = orderId;
 		this.member = member;
-		this.showtime = showtime;
+		this.showTime = showTime;
 		this.seatId = seatId;
 		this.menu = menu;
 	}
@@ -63,12 +63,12 @@ public class Orders {
 		this.member = member;
 	}
 
-	public ShowTime getShowtime() {
-		return showtime;
+	public ShowTime getShowTime() {
+		return showTime;
 	}
 
-	public void setShowtime(ShowTime showtime) {
-		this.showtime = showtime;
+	public void setShowTime(ShowTime showTime) {
+		this.showTime = showTime;
 	}
 
 	public int getSeatId() {
@@ -87,4 +87,5 @@ public class Orders {
 		this.menu = menu;
 	}
 
+	
 }
