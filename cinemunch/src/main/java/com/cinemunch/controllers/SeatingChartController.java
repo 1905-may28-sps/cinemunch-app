@@ -7,12 +7,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cinemunch.beans.SeatingChart;
+import com.cinemunch.repositories.SeatingChartRepository;
 import com.cinemunch.service.SeatingChartService;
 
 @RestController
@@ -36,10 +38,27 @@ public class SeatingChartController {
 		return new ResponseEntity<SeatingChart>(s, HttpStatus.CREATED);
 	}
 	
-	@RequestMapping(value="{seatId}", method=RequestMethod.PATCH, consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<SeatingChart> patch( @RequestBody SeatingChart p){
-		p = service.patch(2, p);
-		return new ResponseEntity(p, HttpStatus.ACCEPTED);
-	}
+	
+//	@PutMapping("/heavyresource/{id}")
+//	@RequestMapping(value= "/{seatId}", method=RequestMethod.PUT)
+//	public ResponseEntity<?> save(@RequestBody SeatingChart seatingchart,
+//	  @PathVariable("seatid") String id) {
+//	    SeatingChartRepository.save(seatingchart, id);
+//	    return ResponseEntity.ok("resource saved");}
+	
+	
+	
+	
+//	@RequestMapping(value="/{seatId}", method=RequestMethod.PATCH, consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+//	public ResponseEntity<SeatingChart> patch( @RequestBody SeatingChart p){
+//		p = service.patch(int, p);
+//		return new ResponseEntity(p, HttpStatus.ACCEPTED);
+//	}
+	
+//	@PatchMapping("/{id}")
+//    ResponseEntity<?> saveSeat(@RequestBody Map<String, String> seats) {
+//        SeatingChart toBePatchedSeatingChart = objectMapper.convertValue(seats, SeatingChart.class);
+//        showTimeservice.patch(toBePatchedSeatingChart);
+//    }
 
 }

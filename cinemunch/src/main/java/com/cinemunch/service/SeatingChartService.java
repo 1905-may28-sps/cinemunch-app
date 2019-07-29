@@ -11,7 +11,7 @@ import com.cinemunch.repositories.SeatingChartRepository;
 @Service
 public class SeatingChartService {
 
-	@Autowired
+	@Autowired 
 	SeatingChartRepository seatingChartRepo;
 	
 	public SeatingChart add(SeatingChart seatingChart) {
@@ -20,10 +20,31 @@ public class SeatingChartService {
 	
 	public List<SeatingChart> getAll(){
 		return seatingChartRepo.findAll();
+		
+	}
+	public SeatingChart save(SeatingChart seatingChart ) {
+		return seatingChartRepo.save(seatingChart);
 	}
 	
-	public SeatingChart patch(int seatId, SeatingChart seatingChart) {
-		return seatingChartRepo.findOne(seatId);
-	}
+	
+	
+	
+	
+	
+	
+	
+//	public SeatingChart patch(Class<Integer> seatId, SeatingChart seatingChart) {
+//		return seatingChartRepo.save(seatId);
+//	}
+	
+//	public void patch(SeatingChart toBePatched) {
+//        Optional<SeatingChart> optionalSeatingChart = SeatingChartRepository.findOne(toBePatched.getSeatId());
+//        if (optionalSeatingChart.isPresent()) {
+//            SeatingChart fromDb = optionalSeatingChart.get();
+//            beanUtils.copyProperties(fromDb, toBePatched);
+//            updateSeatingChart(fromDb);
+//        }
+//    }
+	
 	
 }
