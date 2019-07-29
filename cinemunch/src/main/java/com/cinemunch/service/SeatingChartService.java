@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cinemunch.beans.Movie;
 import com.cinemunch.beans.SeatingChart;
 import com.cinemunch.repositories.SeatingChartRepository;
 
@@ -26,6 +27,14 @@ public class SeatingChartService {
 		return seatingChartRepo.save(seatingChart);
 	}
 	
+	public SeatingChart getById(int id) {
+		return seatingChartRepo.findOne(id);
+	}
+	
+	public SeatingChart getSeats(int id) {
+		SeatingChart s = getById(id);
+		return s;
+	}
 	
 	
 	

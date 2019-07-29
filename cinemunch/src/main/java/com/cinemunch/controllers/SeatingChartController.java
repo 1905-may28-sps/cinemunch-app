@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cinemunch.beans.SeatingChart;
-import com.cinemunch.repositories.SeatingChartRepository;
 import com.cinemunch.service.SeatingChartService;
 
 @RestController
@@ -36,6 +35,13 @@ public class SeatingChartController {
 	public ResponseEntity<SeatingChart> add(@RequestBody SeatingChart s){
 		s = service.add(s);
 		return new ResponseEntity<SeatingChart>(s, HttpStatus.CREATED);
+	}
+	
+	@CrossOrigin(origins="https://localhost:4200")
+	@RequestMapping(value= "/seatnumber/{seatId}")
+	public ResponseEntity<SeatingChart> getById(@PathVariable int id){
+		System.out.println("getting seat");
+		return new ResponseEntity<SeatingChart>(service.getById(id), HttpStatus.OK);
 	}
 	
 	
