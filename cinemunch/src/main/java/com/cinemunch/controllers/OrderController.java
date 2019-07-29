@@ -35,5 +35,12 @@ public class OrderController {
 		orders = service.add(orders);
 		return new ResponseEntity<Orders>(orders, HttpStatus.CREATED);
 	}
+	
+//	@RequestMapping
+//	public ResponseEntity<List<seatId>> findAll(){
+//		List<seatId> orders = service.getAll();
+//		if(orders == null || orders.size() == 0) return new ResponseEntity<List<seatId>>(HttpStatus.NO_CONTENT);
+//		return new ResponseEntity<List<Orders>>(orders, HttpStatus.OK);
+//	}
 
 }

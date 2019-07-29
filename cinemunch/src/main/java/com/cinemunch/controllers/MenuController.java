@@ -18,7 +18,6 @@ import com.cinemunch.service.MenuService;
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/menu")
-@CrossOrigin("*")
 public class MenuController {
 
 	@Autowired

@@ -23,14 +23,11 @@ public class Orders {
 	private Member member;
 	
 	@ManyToOne
-	@MapsId ("MOVIEID")
-	@JoinColumn(name = "MOVIEID")
-	private Movie movie;
+	@MapsId ("SHOWTIMEID")
+	@JoinColumn(name = "SHOWTIMEID")
+	private ShowTime showtime;
 	
-	@ManyToOne
-	@MapsId ("SEATID")
-	@JoinColumn(name = "SEATID")
-	private SeatingChart seatingChart;
+	private int seatId;
 	
 	@ManyToOne
 	@MapsId ("MENUID")
@@ -41,12 +38,12 @@ public class Orders {
 		
 	}
 
-	public Orders(OrderId orderId, Member member, Movie movie, SeatingChart seatingChart, Menu menu) {
+	public Orders(OrderId orderId, Member member, ShowTime showtime, int seatId, Menu menu) {
 		super();
 		this.orderId = orderId;
 		this.member = member;
-		this.movie = movie;
-		this.seatingChart = seatingChart;
+		this.showtime = showtime;
+		this.seatId = seatId;
 		this.menu = menu;
 	}
 
@@ -66,20 +63,20 @@ public class Orders {
 		this.member = member;
 	}
 
-	public Movie getMovie() {
-		return movie;
+	public ShowTime getShowtime() {
+		return showtime;
 	}
 
-	public void setMovie(Movie movie) {
-		this.movie = movie;
+	public void setShowtime(ShowTime showtime) {
+		this.showtime = showtime;
 	}
 
-	public SeatingChart getSeatingChart() {
-		return seatingChart;
+	public int getSeatId() {
+		return seatId;
 	}
 
-	public void setSeatingChart(SeatingChart seatingChart) {
-		this.seatingChart = seatingChart;
+	public void setSeatId(int seatId) {
+		this.seatId = seatId;
 	}
 
 	public Menu getMenu() {
@@ -89,5 +86,5 @@ public class Orders {
 	public void setMenu(Menu menu) {
 		this.menu = menu;
 	}
-	
+
 }
