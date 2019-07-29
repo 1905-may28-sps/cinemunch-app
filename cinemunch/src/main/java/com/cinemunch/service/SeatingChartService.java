@@ -5,9 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cinemunch.beans.Member;
 import com.cinemunch.beans.SeatingChart;
-import com.cinemunch.beans.ShowTime;
 import com.cinemunch.repositories.SeatingChartRepository;
 
 @Service
