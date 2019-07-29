@@ -12,29 +12,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cinemunch.beans.Menu;
-import com.cinemunch.service.MenuService;
+import com.cinemunch.beans.MemType;
+import com.cinemunch.service.MemTypeService;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/menu")
-@CrossOrigin("*")
-public class MenuController {
-
+@RequestMapping("/memtype")
+public class MemTypeController {
+	
 	@Autowired
-	MenuService service;
+	MemTypeService service;
 	
 	@RequestMapping
-	public ResponseEntity<List<Menu>> findAll(){
-		List<Menu> menus = service.getAll();
-		if(menus == null || menus.size() == 0) return new ResponseEntity<List<Menu>>(HttpStatus.NO_CONTENT);
-		return new ResponseEntity<List<Menu>>(menus, HttpStatus.OK);
+	public ResponseEntity<List<MemType>> findAll(){
+		List<MemType> memTypes = service.getAll();
+		if(memTypes == null || memTypes.size() == 0) return new ResponseEntity<List<MemType>>(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<List<MemType>>(memTypes, HttpStatus.OK);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Menu> add(@RequestBody Menu m){
+	public ResponseEntity<MemType> add(@RequestBody MemType m){
 		m = service.add(m);
-		return new ResponseEntity<Menu>(m, HttpStatus.CREATED);
+		return new ResponseEntity<MemType>(m, HttpStatus.CREATED);
 	}
-	
+
 }

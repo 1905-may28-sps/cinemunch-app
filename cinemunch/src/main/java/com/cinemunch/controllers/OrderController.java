@@ -12,29 +12,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cinemunch.beans.Menu;
-import com.cinemunch.service.MenuService;
+import com.cinemunch.beans.Orders;
+import com.cinemunch.service.OrdersService;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/menu")
-@CrossOrigin("*")
-public class MenuController {
-
+@RequestMapping(value="/orders")
+public class OrderController {
+	
 	@Autowired
-	MenuService service;
+	OrdersService service;
 	
 	@RequestMapping
-	public ResponseEntity<List<Menu>> findAll(){
-		List<Menu> menus = service.getAll();
-		if(menus == null || menus.size() == 0) return new ResponseEntity<List<Menu>>(HttpStatus.NO_CONTENT);
-		return new ResponseEntity<List<Menu>>(menus, HttpStatus.OK);
+	public ResponseEntity<List<Orders>> findAll(){
+		List<Orders> orders = service.getAll();
+		if(orders == null || orders.size() == 0) return new ResponseEntity<List<Orders>>(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<List<Orders>>(orders, HttpStatus.OK);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Menu> add(@RequestBody Menu m){
-		m = service.add(m);
-		return new ResponseEntity<Menu>(m, HttpStatus.CREATED);
+	public ResponseEntity<Orders> add(@RequestBody Orders orders){
+		orders = service.add(orders);
+		return new ResponseEntity<Orders>(orders, HttpStatus.CREATED);
 	}
-	
+
 }
