@@ -9,4 +9,6 @@ import com.cinemunch.beans.SeatingChart;
 public interface SeatingChartRepository extends JpaRepository<SeatingChart, Integer>{
 
 
+	SeatingChart findByOccupancyId(String occupancyId);
+
 }
