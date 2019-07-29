@@ -40,5 +40,54 @@ public class Orders {
 	public Orders() {
 		
 	}
+
+	public Orders(OrderId orderId, Member member, Movie movie, SeatingChart seatingChart, Menu menu) {
+		super();
+		this.orderId = orderId;
+		this.member = member;
+		this.movie = movie;
+		this.seatingChart = seatingChart;
+		this.menu = menu;
+	}
+
+	public OrderId getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(OrderId orderId) {
+		this.orderId = orderId;
+	}
+
+	public Member getMember() {
+		return member;
+	}
+
+	public void setMember(Member member) {
+		this.member = member;
+	}
+
+	public Movie getMovie() {
+		return movie;
+	}
+
+	public void setMovie(Movie movie) {
+		this.movie = movie;
+	}
+
+	public SeatingChart getSeatingChart() {
+		return seatingChart;
+	}
+
+	public void setSeatingChart(SeatingChart seatingChart) {
+		this.seatingChart = seatingChart;
+	}
+
+	public Menu getMenu() {
+		return menu;
+	}
+
+	public void setMenu(Menu menu) {
+		this.menu = menu;
+	}
 	
 }

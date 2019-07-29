@@ -12,28 +12,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cinemunch.beans.ShowTime;
-import com.cinemunch.service.ShowTimeService;
+import com.cinemunch.beans.Orders;
+import com.cinemunch.service.OrdersService;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/showtime")
-public class ShowTimeController {
+@RequestMapping(value="/orders")
+public class OrderController {
 	
 	@Autowired
-	ShowTimeService service;
+	OrdersService service;
 	
 	@RequestMapping
-	public ResponseEntity<List<ShowTime>> findAll(){
-		List<ShowTime> showTimes = service.getAll();
-		if(showTimes == null || showTimes.size() == 0) return new ResponseEntity<List<ShowTime>>(HttpStatus.NO_CONTENT);
-		return new ResponseEntity<List<ShowTime>>(showTimes, HttpStatus.OK);
+	public ResponseEntity<List<Orders>> findAll(){
+		List<Orders> orders = service.getAll();
+		if(orders == null || orders.size() == 0) return new ResponseEntity<List<Orders>>(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<List<Orders>>(orders, HttpStatus.OK);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<ShowTime> add(@RequestBody ShowTime s){
-		s = service.add(s);
-		return new ResponseEntity<ShowTime>(s, HttpStatus.CREATED);
+	public ResponseEntity<Orders> add(@RequestBody Orders orders){
+		orders = service.add(orders);
+		return new ResponseEntity<Orders>(orders, HttpStatus.CREATED);
 	}
 
 }

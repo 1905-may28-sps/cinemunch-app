@@ -12,28 +12,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cinemunch.beans.ShowTime;
-import com.cinemunch.service.ShowTimeService;
+import com.cinemunch.beans.MemType;
+import com.cinemunch.service.MemTypeService;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/showtime")
-public class ShowTimeController {
+@RequestMapping("/memtype")
+public class MemTypeController {
 	
 	@Autowired
-	ShowTimeService service;
+	MemTypeService service;
 	
 	@RequestMapping
-	public ResponseEntity<List<ShowTime>> findAll(){
-		List<ShowTime> showTimes = service.getAll();
-		if(showTimes == null || showTimes.size() == 0) return new ResponseEntity<List<ShowTime>>(HttpStatus.NO_CONTENT);
-		return new ResponseEntity<List<ShowTime>>(showTimes, HttpStatus.OK);
+	public ResponseEntity<List<MemType>> findAll(){
+		List<MemType> memTypes = service.getAll();
+		if(memTypes == null || memTypes.size() == 0) return new ResponseEntity<List<MemType>>(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<List<MemType>>(memTypes, HttpStatus.OK);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<ShowTime> add(@RequestBody ShowTime s){
-		s = service.add(s);
-		return new ResponseEntity<ShowTime>(s, HttpStatus.CREATED);
+	public ResponseEntity<MemType> add(@RequestBody MemType m){
+		m = service.add(m);
+		return new ResponseEntity<MemType>(m, HttpStatus.CREATED);
 	}
 
 }

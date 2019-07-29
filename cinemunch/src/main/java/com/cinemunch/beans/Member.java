@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -35,8 +37,7 @@ public class Member {
 	private String username;
 	
 	@Column(nullable=false)
-	private String password;
-	
+	private String password;	
 	
 	public Member() {
 		
@@ -120,7 +121,7 @@ public class Member {
 		return password;
 	}
 
-
+	
 	public void setPassword(String password) {
 		this.password = password;
 	}

@@ -1,5 +1,6 @@
 package com.cinemunch.beans;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,14 +26,18 @@ public class SeatingChart {
 	@JoinColumn(name="SHOWTIMEID")
 	private ShowTime showTime;
 	
+	@Column
+	private String occupancyId;
+	
 	public SeatingChart() {
 		
 	}
 
-	public SeatingChart(int seatId, ShowTime showTime) {
+	public SeatingChart(int seatId, ShowTime showTime, String occupancyId) {
 		super();
 		this.seatId = seatId;
 		this.showTime = showTime;
+		this.occupancyId = occupancyId;
 	}
 	
 	public int getSeatId() {
@@ -50,5 +55,13 @@ public class SeatingChart {
 	public void setShowTime(ShowTime showTime) {
 		this.showTime = showTime;
 	}	
+	
+	public String getOccupancyId() {
+		return occupancyId;
+	}
+	
+	public void setOccupancyId(String occupancyId) {
+		this.occupancyId = occupancyId;
+	}
 
 }
