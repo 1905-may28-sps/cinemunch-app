@@ -37,7 +37,11 @@ public class Member {
 	private String username;
 	
 	@Column(nullable=false)
-	private String password;	
+	private String password;
+	
+	@ManyToOne
+	@JoinColumn(name="MEMTYPEID", nullable=false)
+	private MemType memType;
 	
 	public Member() {
 		
@@ -45,7 +49,7 @@ public class Member {
 
 
 	public Member(int memberId, String firstName, String lastName, String dob, String email, String username,
-			String password) {
+			String password, MemType memType) {
 		super();
 		this.memberId = memberId;
 		this.firstName = firstName;
@@ -54,6 +58,7 @@ public class Member {
 		this.email = email;
 		this.username = username;
 		this.password = password;
+		this.memType = memType;
 	}
 
 
@@ -124,6 +129,14 @@ public class Member {
 	
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public MemType getMemType() {
+		return memType;
+	}
+
+	public void setMemType(MemType memType) {
+		this.memType = memType;
 	}
 	
 }

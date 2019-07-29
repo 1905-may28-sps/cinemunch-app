@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cinemunch.beans.Member;
 import com.cinemunch.beans.SeatingChart;
 import com.cinemunch.beans.ShowTime;
 import com.cinemunch.service.SeatingChartService;
