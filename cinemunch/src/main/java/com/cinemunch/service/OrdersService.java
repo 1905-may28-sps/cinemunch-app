@@ -13,6 +13,7 @@ public class OrdersService {
 	
 	@Autowired
 	OrdersRepository ordersRepo;
+//	ShowTime showTime = new ShowTime();
 	
 	public Orders add(Orders orders) {
 		return ordersRepo.save(orders);
@@ -21,5 +22,12 @@ public class OrdersService {
 	public List<Orders> getAll(){
 		return ordersRepo.findAll();
 	}
-
+	
+//	public List<Orders> getSeatId(int id){
+////	Seat s = getBySeatId();
+//	Orders orders = new Orders();
+//	orders.setSeatId(id);
+//	List<Orders> orders1 = ordersRepo.findSeatIdByShowTimeId(id);
+//	return orders1;
+//	}
 }

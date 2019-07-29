@@ -26,5 +26,19 @@ public class ShowTimeService {
 	
 	public List<ShowTime> findAll(){
 		return showTimeRepo.getShowTimeByMovie(m);
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 }
