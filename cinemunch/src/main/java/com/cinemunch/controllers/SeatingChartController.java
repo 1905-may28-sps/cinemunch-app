@@ -39,12 +39,6 @@ public class SeatingChartController {
 		return new ResponseEntity<SeatingChart>(s, HttpStatus.CREATED);
 	}
 	
-//	@RequestMapping(value="{seatId}", method=RequestMethod.PATCH, consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
-//	public ResponseEntity<ShowTime> patch( @RequestBody ShowTime p){
-//		p = service.patch(2, p);
-//		return new ResponseEntity(p, HttpStatus.ACCEPTED);
-//	}
-	
 	@RequestMapping(value="{seatId}", method=RequestMethod.PATCH, consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<SeatingChart> findOne(@RequestBody SeatingChart seatInfo){
 		System.out.println(seatInfo.toString());
