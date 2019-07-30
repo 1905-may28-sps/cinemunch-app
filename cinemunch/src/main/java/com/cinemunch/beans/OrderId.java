@@ -1,4 +1,3 @@
-
 package com.cinemunch.beans;
 
 import java.io.Serializable;
@@ -10,7 +9,11 @@ import javax.persistence.Embeddable;
 public class OrderId implements Serializable{
 	
 	@Column(name = "SHOWTIMEID")
+
+	private int showtimeId;
+
 	private int showTimeId;
+
 	
 	@Column(name = "SEATID")
 	private int seatId;
@@ -29,6 +32,7 @@ public class OrderId implements Serializable{
 
 	public void setShowTimeId(int showTimeId) {
 		this.showTimeId = showTimeId;
+
 	}
 
 	public int getSeatId() {
@@ -39,5 +43,10 @@ public class OrderId implements Serializable{
 		this.seatId = seatId;
 	}
 
-	
+
+
 }
+
+	
+
+

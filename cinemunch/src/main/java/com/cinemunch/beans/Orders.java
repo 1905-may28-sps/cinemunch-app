@@ -27,6 +27,7 @@ public class Orders {
 	@MapsId ("SHOWTIMEID")
 	@JoinColumn(name = "SHOWTIMEID")
 	private ShowTime showTime;
+
 	
 	private int seatId;
 	
@@ -35,9 +36,8 @@ public class Orders {
 	@JoinColumn(name = "MENUID")
 	private Menu menu;
 	
-	public Orders() {
+	public Orders() { }
 		
-	}
 
 	public Orders(OrderId orderId, Member member, ShowTime showTime, int seatId, Menu menu) {
 		super();
@@ -90,4 +90,5 @@ public class Orders {
 
 	
 }
+
 
