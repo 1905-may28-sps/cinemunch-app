@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 
->>>>>>> refs/remotes/origin/master
 package com.cinemunch.beans;
 
 import javax.persistence.EmbeddedId;
@@ -29,11 +26,8 @@ public class Orders {
 	@ManyToOne
 	@MapsId ("SHOWTIMEID")
 	@JoinColumn(name = "SHOWTIMEID")
-<<<<<<< HEAD
-	private ShowTime showtime;
-=======
+
 	private ShowTime showTime;
->>>>>>> refs/remotes/origin/master
 	
 	private int seatId;
 	
@@ -45,59 +39,7 @@ public class Orders {
 	public Orders() {
 		
 	}
-<<<<<<< HEAD
 
-	public Orders(OrderId orderId, Member member, ShowTime showtime, int seatId, Menu menu) {
-		super();
-		this.orderId = orderId;
-		this.member = member;
-		this.showtime = showtime;
-		this.seatId = seatId;
-		this.menu = menu;
-	}
-
-	public OrderId getOrderId() {
-		return orderId;
-	}
-
-	public void setOrderId(OrderId orderId) {
-		this.orderId = orderId;
-	}
-
-	public Member getMember() {
-		return member;
-	}
-
-	public void setMember(Member member) {
-		this.member = member;
-	}
-
-	public ShowTime getShowtime() {
-		return showtime;
-	}
-
-	public void setShowtime(ShowTime showtime) {
-		this.showtime = showtime;
-	}
-
-	public int getSeatId() {
-		return seatId;
-	}
-
-	public void setSeatId(int seatId) {
-		this.seatId = seatId;
-	}
-
-	public Menu getMenu() {
-		return menu;
-	}
-
-	public void setMenu(Menu menu) {
-		this.menu = menu;
-	}
-
-}
-=======
 
 	public Orders(OrderId orderId, Member member, ShowTime showTime, int seatId, Menu menu) {
 		super();
@@ -151,4 +93,4 @@ public class Orders {
 	
 }
 
->>>>>>> refs/remotes/origin/master
+

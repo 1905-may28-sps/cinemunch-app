@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 
->>>>>>> refs/remotes/origin/master
 package com.cinemunch.repositories;
 
 import java.util.List;
