@@ -13,14 +13,10 @@ public interface ShowTimeRepository extends JpaRepository<ShowTime, Integer>{
 	
 //	ShowTime s = new ShowTime();
     List<ShowTime> getShowTimeByMovie(Movie m);
-<<<<<<< HEAD
-
    
-=======
-    
 //    List<ShowTime> findSeatIdByShowTime(ShowTime s);
     
->>>>>>> 75f71f388fc3e6ecf3f9144bc7c5242a834801f4
+
 }
 
 
