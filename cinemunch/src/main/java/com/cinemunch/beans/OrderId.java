@@ -9,11 +9,15 @@ import javax.persistence.Embeddable;
 public class OrderId implements Serializable{
 	
 	@Column(name = "SHOWTIMEID")
+<<<<<<< HEAD
 
 	private int showtimeId;
 
 	private int showTimeId;
 
+=======
+	private int showTimeId;
+>>>>>>> 75f71f388fc3e6ecf3f9144bc7c5242a834801f4
 	
 	@Column(name = "SEATID")
 	private int seatId;
@@ -43,6 +47,7 @@ public class OrderId implements Serializable{
 		this.seatId = seatId;
 	}
 
+<<<<<<< HEAD
 
 
 }
@@ -50,3 +55,31 @@ public class OrderId implements Serializable{
 	
 
 
+=======
+	@Override
+	public int hashCode() {
+		 final int prime = 31;
+	        int result = 1;
+	        result = prime * result + seatId;
+	        result = prime * result + showTimeId;
+	        return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        OrderId other = (OrderId) obj;
+        if (seatId != other.seatId)
+            return false;
+        if (showTimeId != other.showTimeId)
+            return false;
+        return true;
+	}
+
+}
+>>>>>>> 75f71f388fc3e6ecf3f9144bc7c5242a834801f4
