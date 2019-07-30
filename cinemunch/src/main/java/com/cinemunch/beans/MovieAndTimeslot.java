@@ -33,13 +33,5 @@ public class MovieAndTimeslot {
 	public void setShowtimes(List<ShowTime> showtimes) {
 		this.showtimes = showtimes;
 	}
-
-	@Override
-	public String toString() {
-		return "MovieAndTimeslot [movie=" + movie + ", showtimes=" + showtimes + "]";
-	}
-	
-	
-	
 	
 }

@@ -24,22 +24,38 @@ public class OrderController {
 	
 	@Autowired
 	OrdersService service;
-	
 	@RequestMapping
 	public ResponseEntity<List<Orders>> findAll(){
 		List<Orders> orders = service.getAll();
-		if(orders == null || orders.size() == 0) return new ResponseEntity<List<Orders>>(HttpStatus.NO_CONTENT);
+		if(orders == null || orders.size() == 0) return new ResponseEntity<List<Orders>>
+										(HttpStatus.NO_CONTENT);
 		return new ResponseEntity<List<Orders>>(orders, HttpStatus.OK);
 	}
 	
-	
 	@RequestMapping(method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE,
 			produces=MediaType.APPLICATION_JSON_VALUE)
+
 	public ResponseEntity<Orders> add(@RequestBody Orders orders){
 		orders = service.add(orders);
 		return new ResponseEntity<Orders>(orders, HttpStatus.CREATED);
 	}
 	
+
+
+//	@RequestMapping(method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE,
+//			produces=MediaType.APPLICATION_JSON_VALUE)
+//	public ResponseEntity<Orders> add(@RequestBody Orders orders){
+//		orders = service.add(orders);
+//		return new ResponseEntity<Orders>(orders, HttpStatus.CREATED);
+//	}
+	//or orderId???
+	@RequestMapping(value="/{showTimeId}", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE,
+			produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Orders> add(@RequestBody Orders orders, @PathVariable int showTimeId){
+		orders = service.add(orders);
+		return new ResponseEntity<Orders>(orders, HttpStatus.CREATED);
+	}
+
 
 	@RequestMapping(value="/{showTimeId}")
 	public ResponseEntity<List<Orders>> findAll(@PathVariable int showTimeId){
@@ -49,6 +65,10 @@ public class OrderController {
 	}
 
 }
+
+
+
+
 
 
 

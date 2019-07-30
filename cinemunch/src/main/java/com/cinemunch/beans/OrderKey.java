@@ -1,12 +1,14 @@
-
-
 package com.cinemunch.beans;
 
-import javax.persistence.EmbeddedId;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -14,47 +16,47 @@ import org.springframework.stereotype.Component;
 @Component
 @Entity
 @Table
-public class Orders {
+public class OrderKey {
 	
-	@EmbeddedId
-	private OrderId orderId;
+	@Id
+	@Column(name="ORDERKEYID")
+	@SequenceGenerator(name="orderKey_seq_gen", sequenceName="orderKey_seq", allocationSize=1, initialValue=1)
+	@GeneratedValue(generator="orderKey_seq_gen", strategy=GenerationType.SEQUENCE)
+	private int orderKeyId;
 	
 	@ManyToOne
-	@MapsId ("MEMBERID")
 	@JoinColumn(name = "MEMBERID")
 	private Member member;
 	
 	@ManyToOne
-	@MapsId ("SHOWTIMEID")
 	@JoinColumn(name = "SHOWTIMEID")
 	private ShowTime showTime;
-
 	
 	private int seatId;
 	
 	@ManyToOne
-	@MapsId ("MENUID")
 	@JoinColumn(name = "MENUID")
 	private Menu menu;
 	
-	public Orders() { }
+	public OrderKey() {
 		
+	}
 
-	public Orders(OrderId orderId, Member member, ShowTime showTime, int seatId, Menu menu) {
+	public OrderKey(int orderKeyId, Member member, ShowTime showTime, int seatId, Menu menu) {
 		super();
-		this.orderId = orderId;
+		this.orderKeyId = orderKeyId;
 		this.member = member;
 		this.showTime = showTime;
 		this.seatId = seatId;
 		this.menu = menu;
 	}
 
-	public OrderId getOrderId() {
-		return orderId;
+	public int getOrderKeyId() {
+		return orderKeyId;
 	}
 
-	public void setOrderId(OrderId orderId) {
-		this.orderId = orderId;
+	public void setOrderKeyId(int orderKeyId) {
+		this.orderKeyId = orderKeyId;
 	}
 
 	public Member getMember() {
@@ -88,8 +90,5 @@ public class Orders {
 	public void setMenu(Menu menu) {
 		this.menu = menu;
 	}
-
 	
 }
-
-

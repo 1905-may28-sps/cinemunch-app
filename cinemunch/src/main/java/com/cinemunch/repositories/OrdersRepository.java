@@ -1,7 +1,6 @@
 
-package com.cinemunch.repositories;
 
-import java.util.List;
+package com.cinemunch.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
