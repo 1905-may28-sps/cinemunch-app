@@ -1,4 +1,3 @@
-
 package com.cinemunch.beans;
 
 import java.io.Serializable;
@@ -29,6 +28,7 @@ public class OrderId implements Serializable{
 
 	public void setShowTimeId(int showTimeId) {
 		this.showTimeId = showTimeId;
+
 	}
 
 	public int getSeatId() {
@@ -64,5 +64,4 @@ public class OrderId implements Serializable{
         return true;
 	}
 
-	
 }

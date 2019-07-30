@@ -1,4 +1,3 @@
-
 package com.cinemunch.controllers;
 
 import java.util.List;
@@ -24,8 +23,7 @@ public class OrderController {
 	
 	@Autowired
 	OrdersService service;
-	
-	
+
 //	@RequestMapping(method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE,
 //			produces=MediaType.APPLICATION_JSON_VALUE)
 //	public ResponseEntity<Orders> add(@RequestBody Orders orders){
@@ -39,7 +37,7 @@ public class OrderController {
 		orders = service.add(orders);
 		return new ResponseEntity<Orders>(orders, HttpStatus.CREATED);
 	}
-	
+
 	@RequestMapping(value="/{showTimeId}")
 	public ResponseEntity<List<Orders>> findAll(@PathVariable int showTimeId){
 		List<Orders> orders = service.getAll();
@@ -48,8 +46,6 @@ public class OrderController {
 	}
 
 }
-
-
 
 //package com.cinemunch.controllers;
 //
