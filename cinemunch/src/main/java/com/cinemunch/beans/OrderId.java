@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/remotes/origin/master
 package com.cinemunch.beans;
 
 import java.io.Serializable;
@@ -13,31 +9,13 @@ import javax.persistence.Embeddable;
 public class OrderId implements Serializable{
 	
 	@Column(name = "SHOWTIMEID")
-<<<<<<< HEAD
-	private int showtimeId;
-=======
 	private int showTimeId;
->>>>>>> refs/remotes/origin/master
 	
 	@Column(name = "SEATID")
 	private int seatId;
 	
 	public OrderId() {}
 
-<<<<<<< HEAD
-	public OrderId(int showtimeId, int seatId) {
-		super();
-		this.showtimeId = showtimeId;
-		this.seatId = seatId;
-	}
-
-	public int getShowtimeId() {
-		return showtimeId;
-	}
-
-	public void setShowtimeId(int showtimeId) {
-		this.showtimeId = showtimeId;
-=======
 	public OrderId(int showTimeId, int seatId) {
 		super();
 		this.showTimeId = showTimeId;
@@ -50,7 +28,7 @@ public class OrderId implements Serializable{
 
 	public void setShowTimeId(int showTimeId) {
 		this.showTimeId = showTimeId;
->>>>>>> refs/remotes/origin/master
+
 	}
 
 	public int getSeatId() {
@@ -61,10 +39,29 @@ public class OrderId implements Serializable{
 		this.seatId = seatId;
 	}
 
-<<<<<<< HEAD
+	@Override
+	public int hashCode() {
+		 final int prime = 31;
+	        int result = 1;
+	        result = prime * result + seatId;
+	        result = prime * result + showTimeId;
+	        return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        OrderId other = (OrderId) obj;
+        if (seatId != other.seatId)
+            return false;
+        if (showTimeId != other.showTimeId)
+            return false;
+        return true;
+	}
 
 }
-=======
-	
-}
->>>>>>> refs/remotes/origin/master
